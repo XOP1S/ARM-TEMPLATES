@@ -32,7 +32,7 @@ Estas expresiones contiene las secciones siguiente:
 - [Variables](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/variables "Variables en plantillas de ARM"): defina los valores que se reutilizan en las plantillas. Se pueden crear a partir de valores de parametros.
 - [Funciones definidas por el usuario](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/user-defined-functions "Funciones definidas por el usuario en plantillas de Resource Manager") cree funciones personalizadas que simplifiquen la plantilla.
 - [Recursos](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/resource-declaration "Declaración de recursos en plantillas de ARM"): especifique los recursos que se van a implementar.
-- [Salidas](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/outputs?tabs=azure-powershell "Salidas en plantillas de ARM"): devuelva valroes de los recursos implementados.
+- [Salidas](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/outputs?tabs=azure-powershell "Salidas en plantillas de ARM"): devuelva valores de los recursos implementados.
 
 ## Diseño de plantilla
 La definición de plantillas y grupos de recursos depende únicamente de usted, al igual que la administración de la solución. Por ejemplo, puede implementar su aplicación de tres niveles a través de una única plantilla en un único grupo de recursos.
