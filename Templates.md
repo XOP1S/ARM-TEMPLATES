@@ -7,7 +7,7 @@ Para cumplir estos desafíos, puede automatizar las implementaciones y usar la p
 
 ![Plantillas ARM](example%201.jpg "ARM TEMPLATE")
 
-Azure ofrece soluciones para la implementación de la infraestructura como código, las cuales serian las plantillas de Azure Resource Manager (plantillas de ARM o ARM Templates). La plaNtilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
+Azure ofrece soluciones para la implementación de la infraestructura como código, las cuales serian las plantillas de Azure Resource Manager (plantillas de ARM o ARM Templates). La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
 
 Esto implica que las plantillas ARM permitan parametrizar y automatizar la creación y despliegue de toda la infraestructura Azure necesaria en un proyecto (la web, el service plan, las bases de datos, etc.…) permitiendo de este modo, la creación de nuevos entornos exactamente iguales en cuestión de minutos y sin esfuerzo.
 
