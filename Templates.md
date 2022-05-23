@@ -35,15 +35,20 @@ Estas expresiones contiene las secciones siguiente:
 - [Salidas](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/outputs?tabs=azure-powershell "Salidas en plantillas de ARM"): devuelva valores de los recursos implementados.
 
 ### Diseño de plantilla
-La definición de plantillas y grupos de recursos depende únicamente de usted, al igual que la administración de la solución. Por ejemplo, puede implementar su aplicación de tres niveles a través de una única plantilla en un único grupo de recursos.
-
 ![Plantila tier 3 ARM](/Imagenes%20y%20ejemplo/3-tier-template.png)
 
-No obstante, no es necesario que defina toda la infraestructura en una sola plantilla. A menudo, tiene sentido dividir los requisitos de implementación en un conjunto de plantillas seleccionadas, específicas para un propósito. Estas plantillas se pueden reutilizar fácilmente para distintas soluciones. Para implementar una solución concreta, cree una plantilla principal que vincule todas las plantillas necesarias. La imagen siguiente muestra cómo implementar una solución de tres niveles mediante una plantilla principal que incluye tres plantillas anidadas.
+La definición de plantillas y grupos de recursos depende únicamente de usted, al igual que la administración de la solución. Por ejemplo, puede implementar su aplicación de tres niveles a través de una única plantilla en un único grupo de recursos.
 
 ![Conjunto de plantillas](/Imagenes%20y%20ejemplo/nested-tiers-template.png)
 
+No obstante, no es necesario que defina toda la infraestructura en una sola plantilla. A menudo, tiene sentido dividir los requisitos de implementación en un conjunto de plantillas seleccionadas, específicas para un propósito. Estas plantillas se pueden reutilizar fácilmente para distintas soluciones. Para implementar una solución concreta, cree una plantilla principal que vincule todas las plantillas necesarias. La imagen siguiente muestra cómo implementar una solución de tres niveles mediante una plantilla principal que incluye tres plantillas anidadas.
+
+
+![Grupo de recursos independientes](/Imagenes%20y%20ejemplo/tier-templates.png)
+
 Si desea que sus niveles tengan ciclos de vida independientes, puede implementar los tres niveles en grupos de recursos independientes. Observe que todavía se pueden vincular los recursos a los recursos de otros grupos.
+
+
 
 ## Comparativa de Azure y Terraform 
 Ambas son herramientas para implementar código como infraestructura como código y tienen sus pros y contras.
@@ -53,8 +58,6 @@ Sin embargo, si usara los servicios de Azure, Las plantillas de ARM tienen la ve
 Entonces se puede concluir de esta parte, que ARM si bien es nativo de Azure, recibe los últimos recursos de esta a medida que se publica, pero en Terraform se admiten múltiples proveedores de nube y recursos locales 
 En cuanto a seguridad, Terraform almacena las credenciales en texto sin formato en el archivo de estado, mientras que las plantillas ARM no tienen un archivo de estado. Si es un ingeniero interesado en proteger sus archivos de configuración, puede elegir plantillas ARM en lugar de Terraform. También puede usar Terraform pero debe implementar soluciones alternativas adicionales para proteger las credenciales, como almacenarlas en un Key Vault y eliminar el archivo de estado.
 
-
-![Grupo de recursos independientes](/Imagenes%20y%20ejemplo/tier-templates.png)
 
 ## ¿Cómo crear una plantila ARM?
 
