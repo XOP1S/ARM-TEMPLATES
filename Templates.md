@@ -5,7 +5,7 @@ La nube ha tomado cada vez mas relevancia, por ello muchos equipos han adoptado 
 
 Para cumplir estos desafíos, puede automatizar las implementaciones y usar la práctica de infraestructura como código. En el código, debe definir la infraestructura que debe ser implementada. Así pues, el código de infraestructura se convierte en parte del proyecto. Al igual que el código de la aplicación, puede almacenar el código de infraestructura en un repositorio de origen y agregarle un número de versión. Cualquier miembro del equipo podrá ejecutar el código e implementar entornos similares.
 
-![Plantillas ARM](example%201.jpg "ARM TEMPLATE")
+![Plantillas ARM](/Imagenes%20y%20ejemplo/example%201.jpg "ARM TEMPLATE")
 
 Azure ofrece soluciones para la implementación de la infraestructura como código, las cuales serian las plantillas de Azure Resource Manager (plantillas de ARM o ARM Templates). La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
 
@@ -36,11 +36,12 @@ Estas expresiones contiene las secciones siguiente:
 
 ### Diseño de plantilla
 La definición de plantillas y grupos de recursos depende únicamente de usted, al igual que la administración de la solución. Por ejemplo, puede implementar su aplicación de tres niveles a través de una única plantilla en un único grupo de recursos.
-![Plantila tier 3 ARM](3-tier-template.png)
+
+![Plantila tier 3 ARM](/Imagenes%20y%20ejemplo/3-tier-template.png)
 
 No obstante, no es necesario que defina toda la infraestructura en una sola plantilla. A menudo, tiene sentido dividir los requisitos de implementación en un conjunto de plantillas seleccionadas, específicas para un propósito. Estas plantillas se pueden reutilizar fácilmente para distintas soluciones. Para implementar una solución concreta, cree una plantilla principal que vincule todas las plantillas necesarias. La imagen siguiente muestra cómo implementar una solución de tres niveles mediante una plantilla principal que incluye tres plantillas anidadas.
 
-![Conjunto de plantillas](nested-tiers-template.png)
+![Conjunto de plantillas](/Imagenes%20y%20ejemplo/nested-tiers-template.png)
 
 Si desea que sus niveles tengan ciclos de vida independientes, puede implementar los tres niveles en grupos de recursos independientes. Observe que todavía se pueden vincular los recursos a los recursos de otros grupos.
 
@@ -53,7 +54,7 @@ Entonces se puede concluir de esta parte, que ARM si bien es nativo de Azure, re
 En cuanto a seguridad, Terraform almacena las credenciales en texto sin formato en el archivo de estado, mientras que las plantillas ARM no tienen un archivo de estado. Si es un ingeniero interesado en proteger sus archivos de configuración, puede elegir plantillas ARM en lugar de Terraform. También puede usar Terraform pero debe implementar soluciones alternativas adicionales para proteger las credenciales, como almacenarlas en un Key Vault y eliminar el archivo de estado.
 
 
-![Grupo de recursos independientes](tier-templates.png)
+![Grupo de recursos independientes](/Imagenes%20y%20ejemplo/tier-templates.png)
 
 ## ¿Cómo crear una plantila ARM?
 
@@ -71,7 +72,7 @@ Para empezar con el proceso de creacion de una plantilla ARM primero se debe obt
 
 ### Creación de la primera plantilla
 1. Para empezar, se abre Visual Studio Code y se instala la extensión de Herramientas de Resource Manager.
-![Herramienta de Azure Resource Manager](Creacion%20de%20plantilla%201.jpg)
+![Herramienta de Azure Resource Manager](/Imagenes%20y%20ejemplo/Creacion%20de%20plantilla%201.jpg)
 
 2. Se debe asignar una carpeta de trabajo para Visual Studio Code desde la cual se creara el archivo que recibira el nombre de *azuredeploy.json*
 
@@ -84,7 +85,7 @@ Para empezar con el proceso de creacion de una plantilla ARM primero se debe obt
 }
 ```
 De este modo se ve en Visual Studio Code
-![Asi se ve en Visual Studio Code](Creacion%20de%20plantilla%202.jpg)
+![Asi se ve en Visual Studio Code](/Imagenes%20y%20ejemplo/Creacion%20de%20plantilla%202.jpg)
 
 Con esta plantilla no se implementa ningún recurso. Simplemente se muestra los pasos basicos a seguir para crear una plantilla ARM.
 
