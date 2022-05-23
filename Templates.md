@@ -50,7 +50,7 @@ Si desea que sus niveles tengan ciclos de vida independientes, puede implementar
 
 
 
-## Comparativa de Azure y Terraform 
+## Comparativa de ARM Templates y Terraform 
 Ambas son herramientas para implementar código como infraestructura como código y tienen sus pros y contras.
 Por ejemplo, desea integrar las funciones de un proveedor de nube con otro, una herramienta independiente de la nube como Terraform podría ser una buena opción. El agnosticismo de Terraform le permite usar la misma configuración de nube para administrar recursos con diferentes proveedores, además de que no tiene que aprender varios idiomas para cada proveedor de nube.
 
@@ -106,7 +106,7 @@ New-AzResourceGroup `
   -Name myResourceGroup `
   -Location "Central US" 
 ```
-#### Implentar plantilla
+#### Implementar plantilla
 * Usando ya sea la CLI de Azure o Powershell para implementar la plantilla, se usará el grupo de recursos creado.
 
 * Se le asignara un nombre a la implementación para identificarla fácilmente en el historial de implementaciones. 
