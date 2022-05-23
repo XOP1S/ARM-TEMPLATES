@@ -34,7 +34,7 @@ Estas expresiones contiene las secciones siguiente:
 - [Recursos](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/resource-declaration "Declaración de recursos en plantillas de ARM"): especifique los recursos que se van a implementar.
 - [Salidas](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/outputs?tabs=azure-powershell "Salidas en plantillas de ARM"): devuelva valroes de los recursos implementados.
 
-## Diseño de plantilla
+### Diseño de plantilla
 La definición de plantillas y grupos de recursos depende únicamente de usted, al igual que la administración de la solución. Por ejemplo, puede implementar su aplicación de tres niveles a través de una única plantilla en un único grupo de recursos.
 ![Plantila tier 3 ARM](3-tier-template.png)
 
@@ -43,6 +43,15 @@ No obstante, no es necesario que defina toda la infraestructura en una sola plan
 ![Conjunto de plantillas](nested-tiers-template.png)
 
 Si desea que sus niveles tengan ciclos de vida independientes, puede implementar los tres niveles en grupos de recursos independientes. Observe que todavía se pueden vincular los recursos a los recursos de otros grupos.
+
+## Comparativa de Azure y Terraform 
+Ambas son herramientas para implementar código como infraestructura como código y tienen sus pros y contras.
+Por ejemplo, desea integrar las funciones de un proveedor de nube con otro, una herramienta independiente de la nube como Terraform podría ser una buena opción. El agnosticismo de Terraform le permite usar la misma configuración de nube para administrar recursos con diferentes proveedores, además de que no tiene que aprender varios idiomas para cada proveedor de nube.
+
+Sin embargo, si usara los servicios de Azure, Las plantillas de ARM tienen la ventaja ya que usan las nuevas características de Azure tan pronto como se lanzan sin necesidad de cambios en el código, ya que las plantillas de ARM son un producto nativo. Con Terraform de código abierto, esto lleva tiempo, ya que primero debe configurar Terraform para reconocer los nuevos cambios en Azure. Este retraso puede ser un problema si su producto necesita las características más recientes de Azure o si faltan actualizaciones relacionadas con la seguridad.
+Entonces se puede concluir de esta parte, que ARM si bien es nativo de Azure, recibe los últimos recursos de esta a medida que se publica, pero en Terraform se admiten múltiples proveedores de nube y recursos locales 
+En cuanto a seguridad, Terraform almacena las credenciales en texto sin formato en el archivo de estado, mientras que las plantillas ARM no tienen un archivo de estado. Si es un ingeniero interesado en proteger sus archivos de configuración, puede elegir plantillas ARM en lugar de Terraform. También puede usar Terraform pero debe implementar soluciones alternativas adicionales para proteger las credenciales, como almacenarlas en un Key Vault y eliminar el archivo de estado.
+
 
 ![Grupo de recursos independientes](tier-templates.png)
 
@@ -66,7 +75,7 @@ Para empezar con el proceso de creacion de una plantilla ARM primero se debe obt
 
 2. Se debe asignar una carpeta de trabajo para Visual Studio Code desde la cual se creara el archivo que recibira el nombre de *azuredeploy.json*
 
-3. Creado el archivo se debe copiar y pegar el siguiente codigo JSON
+3. Creado el archivo se debe copiar y pegar el siguiente codigo JSON.
 ```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -81,5 +90,33 @@ Con esta plantilla no se implementa ningún recurso. Simplemente se muestra los 
 
 4. Se guarda el archivo y ya tiene su primera plantilla ARM creada.
 
+### Implementación
+* Para empezar, desde Azure PowerShell se escribe el comando `connect -AzAccount`
 
-### Para continuar los procesos de implementación puede seguir [este enlace](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell "Creación e implementación de plantilla ARM") donde se muestran los pasos para implementar la plantilla ARM
+* Luego se usa el comando `AzContext SubscriptionName` SubscriptionName representa el nombre de la suscripción, si cuenta con varias suscripciones, se debe especificar el nombre de cuál usara.
+
+#### Creación de un grupo de recursos
+* Al momento de implementar una plantilla, se especifica un grupo de recursos donde se contendrá los recursos. Antes de ejecutar el comando de implementación, primero se crea el grupo de recursos ya sea con la CLI de Azure o Powershell y se utiliza el siguiente comando:
+```powershell
+New-AzResourceGroup `
+  -Name myResourceGroup `
+  -Location "Central US" 
+```
+#### Implentar plantilla
+* Usando ya sea la CLI de Azure o Powershell para implementar la plantilla, se usará el grupo de recursos creado.
+
+* Se le asignara un nombre a la implementación para identificarla fácilmente en el historial de implementaciones. 
+* Para mayor comodidad, cree también una variable que almacene la ruta de acceso al archivo de plantilla. Esta variable facilita la ejecución de los comandos de implementación, ya que no es necesario volver a escribir la ruta de acceso cada vez que se implementa. Reemplace `{provide-the-path-to-the-template-file}` y las llaves `{}` por la ruta de acceso al archivo de plantilla.
+* Finalmente, se introduce el comando de implementación
+
+```powershell
+$templateFile = "{provide-the-path-to-the-template-file}"
+New-AzResourceGroupDeployment `
+  -Name blanktemplate `
+  -ResourceGroupName myResourceGroup `
+  -TemplateFile $templateFile
+```
+* El comando de implementación devuelve los resultados, puede buscar usando `ProvisioningState` para ver si la implementación se realizó correctamente.
+
+
+#### Para continuar los procesos de implementación puede seguir [este enlace](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell "Creación e implementación de plantilla ARM") donde se muestran los pasos para implementar la plantilla ARM
