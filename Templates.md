@@ -7,7 +7,7 @@ Para cumplir estos desafíos, puede automatizar las implementaciones y usar la p
 
 ![Plantillas ARM](example%201.jpg "ARM TEMPLATE")
 
-Azure ofrece soluciones para la implementación de la infraestructura como código, las cuales serian las plantillas de Azure Resource Manager (plantillas de ARM o ARM Templates). La plaNtilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
+Azure ofrece soluciones para la implementación de la infraestructura como código, las cuales serian las plantillas de Azure Resource Manager (plantillas de ARM o ARM Templates). La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
 
 Esto implica que las plantillas ARM permitan parametrizar y automatizar la creación y despliegue de toda la infraestructura Azure necesaria en un proyecto (la web, el service plan, las bases de datos, etc.…) permitiendo de este modo, la creación de nuevos entornos exactamente iguales en cuestión de minutos y sin esfuerzo.
 
@@ -32,7 +32,7 @@ Estas expresiones contiene las secciones siguiente:
 - [Variables](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/variables "Variables en plantillas de ARM"): defina los valores que se reutilizan en las plantillas. Se pueden crear a partir de valores de parametros.
 - [Funciones definidas por el usuario](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/user-defined-functions "Funciones definidas por el usuario en plantillas de Resource Manager") cree funciones personalizadas que simplifiquen la plantilla.
 - [Recursos](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/resource-declaration "Declaración de recursos en plantillas de ARM"): especifique los recursos que se van a implementar.
-- [Salidas](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/outputs?tabs=azure-powershell "Salidas en plantillas de ARM"): devuelva valroes de los recursos implementados.
+- [Salidas](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/outputs?tabs=azure-powershell "Salidas en plantillas de ARM"): devuelva valores de los recursos implementados.
 
 ### Diseño de plantilla
 La definición de plantillas y grupos de recursos depende únicamente de usted, al igual que la administración de la solución. Por ejemplo, puede implementar su aplicación de tres niveles a través de una única plantilla en un único grupo de recursos.
