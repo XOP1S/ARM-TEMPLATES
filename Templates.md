@@ -55,7 +55,8 @@ Ambas son herramientas para implementar código como infraestructura como códig
 Por ejemplo, desea integrar las funciones de un proveedor de nube con otro, una herramienta independiente de la nube como Terraform podría ser una buena opción. El agnosticismo de Terraform le permite usar la misma configuración de nube para administrar recursos con diferentes proveedores, además de que no tiene que aprender varios idiomas para cada proveedor de nube.
 
 Sin embargo, si usara los servicios de Azure, Las plantillas de ARM tienen la ventaja ya que usan las nuevas características de Azure tan pronto como se lanzan sin necesidad de cambios en el código, ya que las plantillas de ARM son un producto nativo. Con Terraform de código abierto, esto lleva tiempo, ya que primero debe configurar Terraform para reconocer los nuevos cambios en Azure. Este retraso puede ser un problema si su producto necesita las características más recientes de Azure o si faltan actualizaciones relacionadas con la seguridad.
-Entonces se puede concluir de esta parte, que ARM si bien es nativo de Azure, recibe los últimos recursos de esta a medida que se publica, pero en Terraform se admiten múltiples proveedores de nube y recursos locales 
+Entonces se puede concluir de esta parte, que ARM si bien es nativo de Azure, recibe los últimos recursos de esta a medida que se publica, pero en Terraform se admiten múltiples proveedores de nube y recursos locales.
+
 En cuanto a seguridad, Terraform almacena las credenciales en texto sin formato en el archivo de estado, mientras que las plantillas ARM no tienen un archivo de estado. Si es un ingeniero interesado en proteger sus archivos de configuración, puede elegir plantillas ARM en lugar de Terraform. También puede usar Terraform pero debe implementar soluciones alternativas adicionales para proteger las credenciales, como almacenarlas en un Key Vault y eliminar el archivo de estado.
 
 
